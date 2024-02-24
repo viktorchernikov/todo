@@ -1,2 +1,33 @@
 @import './theme.scss';
 @import "~bootstrap/scss/bootstrap";
+
+
+$td-header-height: 65px;
+
+#site-header {
+    position: relative;
+    height: $td-header-height;
+    background: $white;
+    z-index: 100;
+}
+#site-content-wrapper {
+    position: relative;
+    height: calc(100vh - $td-header-height);
+    background: $gray-200;
+}
+#tasklist-container {
+    background: $white;
+}
+.tasklist-blob-delete
+{
+    visibility: hidden;
+}
+.tasklist-blob {
+    background: white;
+}
+.tasklist-blob:hover{
+    background: $gray-100;
+    .tasklist-blob-delete {
+        visibility: visible;
+    }
+}
