@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import TaskListEmptySuggest from "./TaskListEmptySuggest";
 import TaskListViewEntry from "./TaskListViewEntry";
 
@@ -42,7 +44,9 @@ function TaskListView(props) {
         <div class='container-md px-4 py-4'>
             <div id="tasklist-creator" class="input-group mb-4">
                 <input id="tasklist-creator-input" onChange={handleMessageInput} value={messageInput} maxLength={140} type="text" class="form-control px-4 py-3" placeholder="What do you need to do?" aria-label="What do you need to do?" aria-describedby="controls-addtask"/>
-                <button id="tasklist-creator-btn" onClick={handleCreateBtn} disabled={!createBtnActive} class="btn btn-primary px-4" type="button">+</button>
+                <button id="tasklist-creator-btn" onClick={handleCreateBtn} disabled={!createBtnActive} class="btn btn-primary px-4" type="button">
+                    <FontAwesomeIcon icon={faPlus}/>
+                </button>
             </div>
             <section id="tasklist-container" class="py-2 rounded-3 shadow-sm">
                 {getContent()}

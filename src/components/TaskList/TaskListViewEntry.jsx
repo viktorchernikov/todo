@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 function TaskListViewEntry(props) {
   const id = props.id;
@@ -52,7 +54,7 @@ function TaskListViewEntry(props) {
             <input type="text" onBlur={handleEditMsgBlur} onChange={handleEditMsgChange} onKeyDown={handleEditMsgKey} value={message} class="tasklist-blob-message ms-3 mt-1"/>
         </div>
         <button onClick={handleDelete} type="button" class="tasklist-blob-delete btn rounded-5">
-            X
+          <FontAwesomeIcon icon={faTrash}/>
         </button>
     </div>
   )
