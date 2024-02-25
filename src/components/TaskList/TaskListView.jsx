@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TaskListEmptySuggest from "./TaskListEmptySuggest";
 import TaskListViewEntry from "./TaskListViewEntry";
 
 function TaskListView(props) {
@@ -23,6 +24,19 @@ function TaskListView(props) {
         }
     }
 
+    function getContent() {
+        if (manager.list.filter(task => task.completed === false).length == 0) {
+            return (<TaskListEmptySuggest/>);
+        }
+        else {
+            return manager.list.map(function(data) {
+                if (!data.completed) {
+                    return (<TaskListViewEntry key={data.id} id={data.id} completed={data.completed} message={data.message} manager={manager}/>);
+                }
+            });
+        }
+    }
+
 
     return (
         <div class='container-md px-4 py-4'>
@@ -31,11 +45,7 @@ function TaskListView(props) {
                 <button id="tasklist-creator-btn" onClick={handleCreateBtn} disabled={!createBtnActive} class="btn btn-primary px-4" type="button">+</button>
             </div>
             <section id="tasklist-container" class="py-2 rounded-3 shadow-sm">
-                {manager.list.map(function(data) {
-                    return (
-                        <TaskListViewEntry key={data.id} id={data.id} completed={data.completed} message={data.message} manager={manager}/>
-                    )
-                })}
+                {getContent()}
             </section>
         </div>
     )
