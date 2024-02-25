@@ -3,31 +3,50 @@
 
 
 $td-header-height: 65px;
+$td-taskblob-outline-size: 0.15rem;
 
 #site-header {
-    position: relative;
+    position: fixed;
     height: $td-header-height;
     background: $white;
     z-index: 100;
 }
 #site-content-wrapper {
-    position: relative;
-    height: calc(100vh - $td-header-height);
+    position: absolute;
+    width: 100%;
+    min-height: calc(100vh - $td-header-height);
+    top: $td-header-height;
     background: $gray-200;
 }
 #tasklist-container {
     background: $white;
 }
-.tasklist-blob-delete
-{
+.tasklist-blob-delete {
     visibility: hidden;
 }
 .tasklist-blob {
-    background: white;
+    background: $white;
 }
-.tasklist-blob:hover{
+.tasklist-blob-mainbar {
+    width: 100%;
+}
+.tasklist-blob-message {
+    width: 100%;
+    background: $white;
+    border: unset;
+    border-top: $td-taskblob-outline-size solid transparent;
+    border-bottom: $td-taskblob-outline-size solid transparent;
+}
+.tasklist-blob-message:focus {
+    outline: none;
+    border-bottom: $td-taskblob-outline-size solid $gray-700;
+}
+.tasklist-blob:hover {
     background: $gray-100;
     .tasklist-blob-delete {
         visibility: visible;
+    }
+    .tasklist-blob-message {
+        background: $gray-100;
     }
 }
