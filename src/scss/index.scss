@@ -24,6 +24,9 @@ $td-taskblob-outline-size: 0.15rem;
 .tasklist-blob-delete {
     visibility: hidden;
 }
+.tasklist-blob-delete:hover {
+    color: $danger
+}
 .tasklist-blob {
     background: $white;
 }
